@@ -29,7 +29,7 @@ class UserController extends Controller
 
     //    UserModel::where('username','customer-1')->update($data);
     // Mencoba akses model UserModel
-    $user = UserModel::where('username', 'manager9')->firstOrFail(); //Mengambil semua data dari tabel m_user
+    $user = UserModel::where('level_id', 2)->count(); //Mengambil semua data dari tabel m_user
     return view('user', ['data' => $user]);
     }
 }
