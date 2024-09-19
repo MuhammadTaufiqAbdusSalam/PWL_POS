@@ -15,21 +15,23 @@ class UserController extends Controller
         //$row = DB::update('update m_user set user_id = ?, level_id = ? where username = ?', [4, 4, 'customer-1']);
         //return 'Update data berhasil. Jumlah data yang diupdate: ' . $row . ' baris';
 
-        $data =[
-            //'username'=>'customer-1',
-            //'nama'=>'Pelanggan pertama',
-            //'password'=> Hash::make('12345'),
-            //'level_id'=> 4
-            'level_id' => 2,
-            'username' => 'Manager_tiga',
-            'nama' => 'Manager 3',
-            'password' => Hash::make('12345'),
-        ];
-        UserModel::create($data);
+        // $data =[
+        //     //'username'=>'customer-1',
+        //     //'nama'=>'Pelanggan pertama',
+        //     //'password'=> Hash::make('12345'),
+        //     //'level_id'=> 4
+        //     'level_id' => 2,
+        //     'username' => 'Manager_tiga',
+        //     'nama' => 'Manager 3',A
+        //     'password' => Hash::make('12345'),
+        // ];
+        // UserModel::create($data);
 
     //    UserModel::where('username','customer-1')->update($data);
     // Mencoba akses model UserModel
-    $user = UserModel::all(); //Mengambil semua data dari tabel m_user
+    $user = UserModel::findOr(20, ['username', 'nama'], function(){
+        abort(404);
+    }); //Mengambil semua data dari tabel m_user
     return view('user', ['data' => $user]);
     }
 }
