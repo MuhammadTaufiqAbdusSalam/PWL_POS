@@ -57,9 +57,9 @@ Pengguna</th><th>Aksi</th></tr>
         $('#myModal').modal('show'); 
     }); 
 } 
-var datauser;
+var dataUser;
         $(document).ready(function() {
-            var dataUser = $('#table_user').DataTable({
+            dataUser = $('#table_user').DataTable({
                 // serverSide: true, jika ingin menggunakan server side processing
                 serverSide: true, 
                 ajax: {
