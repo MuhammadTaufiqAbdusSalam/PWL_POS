@@ -132,5 +132,34 @@
           <i class="fas fa-th-large"></i>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" id="logout-link" role="button">
+            <i class="fas fa-sign-out-alt"></i>
+        </a>
+    </li>
     </ul>
   </nav>
+  <!-- Tambahkan Modal untuk Pop-up -->
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logoutModalLabel">Logout Confirmation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Apakah Anda Yakin Untuk Keluar?
+      </div>
+      <div class="modal-footer">
+        <a href="{{url('logout')}}" class="btn btn-primary">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.getElementById('logout-link').addEventListener('click', function (e) {
+      e.preventDefault(); // Mencegah langsung logout
+      var logoutModal = new bootstrap.Modal(document.getElementById('logoutModal'));
+      logoutModal.show(); // Menampilkan modal pop-up
+  });
+</script>
