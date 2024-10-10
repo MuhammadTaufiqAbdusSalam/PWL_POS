@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
 
 route::get('/', [WelcomeController::class, 'index']);
 
-route::group(['prefix' => 'user'], function () {
+route::group(['prefix' => 'user','middleware'=>'authorize:ADM,STF,MNG'], function () {
     Route::get('/', [UserController :: class, 'index' ]);         // menampilkan halaman awal user
     Route::post('/list', [UserController :: class, 'list' ]);     // menampilkan data user dalam bentuk json untuk datables
     Route::get('/create', [UserController :: class, 'create' ]);  // menampilkan halaman form tambah user
@@ -77,7 +77,7 @@ Route::group(['prefix' => 'level','middleware'=>'authorize:ADM'], function () {
     Route::delete('/{id}/delete_ajax', [LevelController::class, 'delete_ajax']); // Untuk menghapus data user Ajax
     Route::delete('/{id}', [LevelController::class, 'destroy']); // menghapus data level
 });
-Route::group(['prefix' => 'barang'], function () {
+Route::group(['prefix' => 'barang', 'middleware'=>'authorize:ADM,MNG'], function () {
     Route::get('/', [barangController::class, 'index']);              // menampilkan halaman awal barang
     Route::post('/list', [barangController::class, 'list']);          // menampilkan data barang dalam bentuk json untuk datatables
     Route::get('/create', [barangController::class, 'create']);       // menampilkan halaman form tambah barang
@@ -94,7 +94,7 @@ Route::group(['prefix' => 'barang'], function () {
     Route::delete('/{id}/delete_ajax', [barangController::class, 'delete_ajax']);
     Route::delete('/{id}', [barangController::class, 'destroy']);      // menghapus data barang
 });
-Route::group(['prefix' => 'kategori'], function () {
+Route::group(['prefix' => 'kategori','middleware'=>'authorize:ADM,MNG'], function () {
     Route::get('/', [KategoriController::class, 'index']);
     Route::post('/list', [KategoriController::class, 'list']);
     Route::get('/create', [KategoriController::class, 'create']);
@@ -111,7 +111,7 @@ Route::group(['prefix' => 'kategori'], function () {
     Route::delete('/{id}/delete_ajax', [KategoriController::class, 'delete_ajax']); 
     Route::delete('/{id}', [KategoriController::class, 'destroy']);
 });
-Route::group(['prefix' => 'supplier'], function () {
+Route::group(['prefix' => 'supplier','middleware'=>'authorize:ADM,MNG,STF'], function () {
     Route::get('/', [SupplierController::class, 'index']);              // menampilkan halaman awal supplier
     Route::post('/list', [SupplierController::class, 'list']);          // menampilkan data supplier dalam bentuk json untuk datatables
     Route::get('/create', [SupplierController::class, 'create']);       // menampilkan halaman form tambah supplier
