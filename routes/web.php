@@ -99,6 +99,7 @@ Route::group(['prefix' => 'barang', 'middleware'=>'authorize:ADM,MNG'], function
     Route::delete('/{id}', [barangController::class, 'destroy']);      // menghapus data barang
     Route::get('/import', [BarangController::class, 'import']);      // ajax form upload excel
     Route::post('/import_ajax', [BarangController::class, 'import_ajax']);      // ajax import excel
+    Route::get('/export_excel', [BarangController::class, 'export_excel']);      // export excel
 });
 Route::group(['prefix' => 'kategori','middleware'=>'authorize:ADM,MNG'], function () {
     Route::get('/', [KategoriController::class, 'index']);
