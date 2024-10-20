@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\StokController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -151,5 +152,15 @@ Route::group(['prefix' => 'supplier','middleware'=>'authorize:ADM,MNG,STF'], fun
     Route::post('/import_ajax', [SupplierController::class, 'import_ajax']);      // ajax import excel
     Route::get('/export_excel', [SupplierController::class, 'export_excel']);      // export excel
     Route::get('/export_pdf', [SupplierController::class, 'export_pdf']);      // export pdf
+});
+Route::group(['prefix' => 'stok'], function () {
+    Route::get('/', [StokController::class, 'index']);              // Menampilkan halaman awal stok
+    Route::post('/list', [StokController::class, 'list']);          // Menampilkan data stok dalam bentuk JSON untuk datatables
+    Route::get('/create', [StokController::class, 'create']);       // Menampilkan halaman form tambah stok
+    Route::post('/', [StokController::class, 'store']);             // Menyimpan data stok baru
+    Route::get('/{id}', [StokController::class, 'show']);           // Menampilkan detail stok
+    Route::get('/{id}/edit', [StokController::class, 'edit']);      // Menampilkan halaman form edit stok
+    Route::put('/{id}', [StokController::class, 'update']);         // Menyimpan perubahan data stok
+    Route::delete('/{id}', [StokController::class, 'destroy']);     // Menghapus data stok
 });
 });
