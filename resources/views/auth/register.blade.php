@@ -21,6 +21,12 @@
 
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('adminlte/dist/css/adminlte.min.css') }}">
+    <style>
+        body.login-page {
+            background: url('{{ asset('panorama3.jpg') }}');
+            background-size: cover;
+        }
+    </style>
 </head>
 
 <body class="hold-transition login-page">

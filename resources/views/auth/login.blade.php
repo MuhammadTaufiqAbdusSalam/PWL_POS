@@ -17,6 +17,13 @@ ack">
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('adminlte/dist/css/adminlte.min.css') }}">
+    <!-- Latar belakang -->
+    <style>
+        body.login-page {
+            background: url('{{ asset('login.jpg') }}');
+            background-size: cover;
+        }
+    </style>
 </head>
 
 <body class="hold-transition login-page">
