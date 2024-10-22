@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page - Gaya Futuristik</title>
+    <title>Landing Page Taufiq Store</title>
     <!-- Menggunakan font Orbitron dari Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -115,16 +115,16 @@
 <body>
     <!-- Navbar -->
     <nav>
-        <div class="logo">Toko Futuristik</div>
+        <div class="logo">Taufiq Store</div>
         <a href="{{ route('login') }}" class="login-btn">Login</a>
     </nav>
 
     <!-- Container utama -->
     <div class="container">
-        <h1>Selamat Datang di Toko Futuristik!</h1>
+        <h1>Selamat Datang di Toko Hahahahaha!</h1>
         <p>Bergabunglah dalam perjalanan belanja ke masa depan, temukan promo eksklusif, diskon spesial, dan pengalaman belanja yang penuh inovasi!</p>
         <p>Siap memulai petualangan belanja berteknologi tinggi? Klik tombol di bawah ini dan mulailah perjalanan Anda menuju masa depan!</p>
-        <a href="{{ route('login') }}" class="btn">Mulai Petualangan!</a>
+        <a href="{{ route('login') }}" class="btn">Mulai!</a>
     </div>
 </body>
 </html>
