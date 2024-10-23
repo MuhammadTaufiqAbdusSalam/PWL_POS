@@ -69,7 +69,7 @@
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
             position: relative;
-            top: 50%;
+            top: 55%;
             transform: translateY(-50%);
         }
 
@@ -124,6 +124,7 @@
         <h1>Selamat Datang di Toko Hahahahaha!</h1>
         <p>Bergabunglah dalam perjalanan belanja ke masa depan, temukan promo eksklusif, diskon spesial, dan pengalaman belanja yang penuh inovasi!</p>
         <p>Siap memulai petualangan belanja berteknologi tinggi? Klik tombol di bawah ini dan mulailah perjalanan Anda menuju masa depan!</p>
+        <p>Alamat: Kec. Dlanggu, Kab.Mojokerto, Prov. Jawa Timur</p>
         <a href="{{ route('login') }}" class="btn">Mulai!</a>
     </div>
 </body>
