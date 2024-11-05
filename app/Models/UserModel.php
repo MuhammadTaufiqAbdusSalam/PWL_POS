@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -45,5 +46,10 @@ class UserModel extends Authenticatable implements JWTSubject
     }
     public function getJWTCustomClaims(){
         return [];
+    }
+    protected function avatar(){
+        return Attribute::make(
+            get: fn($avatar) => url('storage/avatars/' . $avatar)
+        );
     }
 }
