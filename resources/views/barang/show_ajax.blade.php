@@ -34,6 +34,11 @@
                     <tr><th class="text-right col-3">Nama Barang :</th><td class="col-9">{{ $barang->barang_nama }}</td></tr>
                     <tr><th class="text-right col-3">Harga Beli :</th><td class="col-9">{{ $barang->harga_beli }}</td></tr>
                     <tr><th class="text-right col-3">Harga Jual :</th><td class="col-9">{{ $barang->harga_jual }}</td></tr>
+                    <tr><th class="text-right col-3">Gambar Barang :</th><td class="col-9" id="avatar">
+                            <img src="{{ $barang->avatar ? asset($barang->avatar) : asset('barang_default.png') }}" 
+                                 alt="Gambar Barang" style="width: 100px; height: auto;">
+                        </td>
+                    </tr>
                 </table> 
             </div> 
             <div class="modal-footer"> 

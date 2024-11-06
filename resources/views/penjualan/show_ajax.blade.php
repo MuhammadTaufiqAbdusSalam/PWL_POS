@@ -61,6 +61,10 @@
                     <tbody>
                         @foreach ($penjualan->penjualan_detail as $detail)
                             <tr>
+                                <td>
+                                    <img src="{{ $detail->barang->avatar ? asset($detail->barang->avatar) : asset('barang_default.png') }}" 
+                                         alt="Gambar Barang" style="width: 100px; height: auto;">
+                                </td>
                                 <td>{{ $detail->barang->barang_nama }}</td>
                                 <td>{{ $detail->harga }}</td>
                                 <td>{{ $detail->jumlah }}</td>

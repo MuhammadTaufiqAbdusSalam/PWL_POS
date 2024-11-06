@@ -20,11 +20,15 @@ class BarangController extends Controller
                 'barang_nama' => 'required|string|max:100',
                 'harga_jual' => 'required|integer',
                 'harga_beli' => 'required|integer',
+                'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
         if($validator->fails()){
             return response()->json($validator->errors(),422);
         }
+        // Menggunakan storeAs untuk menyimpan avatar
+        $avatar = $request->avatar->storeAs('avatar_barang', $request->avatar->hashName());
+
 
         $barang = barangmodel::create([
             'barang_id'=>$request->barang_Id,
@@ -32,13 +36,24 @@ class BarangController extends Controller
             'barang_kode'=>$request->barang_kode,
             'barang_nama'=>$request->barang_nama,
             'harga_jual'=>$request->harga_jual,
-            'harga_beli'=>$request->harga_beli
+            'harga_beli'=>$request->harga_beli,
+            'avatar' => $avatar
         ]);
 
         if($barang){
             return response()->json([
                 'success'=>true,
-                'user'=>$barang
+                'user'=>[
+                    'barang_id' => $barang->barang_id,
+                    'kategori_id' => $barang->kategori_id,
+                    'barang_kode' => $barang->barang_kode,
+                    'barang_nama' => $barang->barang_nama,
+                    'harga_jual' => $barang->harga_jual,
+                    'harga_beli' => $barang->harga_beli,
+                    'avatar' => 'avatar_barang/' . $barang->avatar, // Path relatif
+                    'updated_at' => $barang->updated_at,
+                    'created_at' => $barang->created_at,
+                ]
             ],201);
         }
 
